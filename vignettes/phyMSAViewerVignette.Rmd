@@ -1,0 +1,60 @@
+---
+title: "A tour of phyMSAViewer"
+author: "Yining Ding"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{phyMSAViewerVignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+**phyMSAViewer** is a helpful tool that enables users to have a general overview on multiple selected sequences. It also provides multiple sequence alignment on the side and enables users to zoom on a particular range of the multiple sequence alignment to have a better view of the amino acids. Function **uniprotToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by entering Uniprot IDs. Function **seqToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by providing a fasta file containg the selected sequences. The shiny implementation of *phyMSAViewer* is available as **runPhyMSAViewer**. For more information, see details below. This document gives a tour of phyMSAViewer functionalities. It was written in Rmarkdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production.
+
+See `help(package=phyMSAViewer)` for further details and references provided by `citation("phyMSAViewer")`. To download **phyMSAViewer**, use the following commands: 
+```{r setup}
+library(devtools)
+devtools::install_github("helen307/phyMSAViewer", build_vignettes=TRUE)
+library(phyMSAViewer)
+```
+To list all functions available in the package:
+```{r}
+lsf.str("package:phyMSAViewer")
+```
+
+</br>
+
+## MSA algorithm
+
+Normally building a phylogenetic tree starts from providing with a sequence fasta file. In this package, we allow users to start by typing in the Uniprot IDs. Then we download the sequence data from Swiss-Prot. The reason why we chose to perform MSA (multiple sequence alignment) using the algorithm `MUSCLE` is because ClusterW implements an interative method. Therefore, the calculation errors will be accumulated. `MUSCLE` has a progressive algorithm that optimizes at each step. Here is an image that explains the alogrithm of MUSCLE in detail:
+
+![MUSCLE](/Users/helending/Downloads/muscle.jpg){width=50%}
+
+## Creation of phylogenetic trees
+We used the neighbor-joining (NJ) algorithm to create our phylogenetic tree after we obtain the pairwise distances from the sequences. This algorithm joins the two closest sub-trees that are not already joined. A "neighbor" is defined as two texa that are connected by a single node in an unrooted tree. Here is an image showing how the NJ algorithm perform its greedy actions:
+
+![NJ is a greedy algorithm](/Users/helending/Downloads/nj.png){width=50%}
+
+## Example
+We will expect the users have a list of Uniprot IDs to enter.
+```{r example}
+library(phyMSAViewer)
+uniprotToPhy <- function(ID="AC=P19838 OR AC=Q00653 OR AC=Q01201")
+# Access the phylogenetic tree with MSA plot directly from the object.
+uniprotToPhy
+```
+
+## References
+
+----
+```{r}
+session_info()
+```

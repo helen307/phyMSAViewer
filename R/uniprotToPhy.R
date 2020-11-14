@@ -23,39 +23,44 @@
 #'
 
 uniprotToPhy <- function(ID){
-  uniID <- ID
-  ### step 4.1 Choose a bank
-  seqinr::choosebank()
-  # UniProt Knowledgebase Release 2016_08 of 07-Sep-2016 Last Updated: Oct  4, 2016
 
-  ### step 4.2 Make the query
+  uniID <- ID
+  if(!is.character(uniID) | length(uniID) < 1){
+    return("Please provide a valid string of Uniprot ID")
+  }
+
   mybank <- seqinr::choosebank(bank = "swissprot")
-  rel_seq <- seqinr::query("relSeq", uniID)
+  seq1 <- seqinr::query("relSeq", uniID)
   # N.B. protein info NOT returned in the same order as requested
 
 
   # get sequence
-  rel_seqs <- seqinr::getSequence(rel_seq)
+  seq2 <- seqinr::getSequence(seq1)
 
   # write into fasta file
-  write.fasta(sequences = rel_seqs,
-              names = getName(rel_seq),
-              nbchar = 80, file.out = "relseqs.fasta")
+  write.fasta(sequences = seq2,
+              names = getName(seq1),
+              nbchar = 80, file.out = "seqs.fasta")
 
   # read sequence from the fasta file
-  mySeqs <- Biostrings::readAAStringSet("relseqs.fasta")   # from package Biostrings
+  mySeqs <- Biostrings::readAAStringSet("seqs")   # from package Biostrings
 
   # perform multiple sequence alignment
-  myAln <- msa::msa(mySeqs)
+  to_align <- msa::msa(mySeqs, method="Muscle")
 
   # Build tree
-  myAln2 <- msa::msaConvert(myAln, type="seqinr::alignment")
+  my_align <- msa::msaConvert(to_align,
+                              type="seqinr::alignment")
 
   # write into fasta
-  write.fasta(as.list(myAln2$seq),myAln2$nam,file.out="msa.fasta")
+  write.fasta(as.list(my_align$seq),
+              my_align$nam,
+              file.out="msa.fasta")
 
-  d <- dist.alignment(myAln2, "identity")
+  d <- dist.alignment(my_align, "identity")
   myTree <- ape::nj(d) # neighbor-joining
 
-  ggtree::msaplot(p=ggtree(myTree), fasta="msa.fasta", window=c(50, 200))
+  ggtree::msaplot(p=ggtree(myTree),
+                  fasta="msa.fasta",
+                  window=c(50, 200))
 }
