@@ -1,4 +1,3 @@
-
 # phyMSAViewer 
 
 <!-- badges: start -->
@@ -23,22 +22,23 @@ This is a basic example which shows you how to get a phylogenetic graph with MSA
 
 ``` r
 library(phyMSAViewer)
-treeWithMSA <- uniprotToPhy("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+treeWithMSA <- uniprotToPhy("AC=Q9H9K5 OR AC=P04439 OR AC=P01889")
 treeWithMSA
 ```
 
 ## Overview
 ls("package:phyMSAViewer")
-data(package="phyMSAViewer") # optional
+data(package="phyMSAViewer")
 browseVignettes("phyMSAViewer")
 
 There are mainly two functions in this package, including producing phylogenetic trees and multiple sequence alignment from Uniprot IDs and from fasta files. A sample dataset is provided as an example, and we will require the users to provide a file of the same format as input to `seqToPhy`. For `uniproToPhy`, please provide a correct character string, separated by " OR ".
 
 ## Contributions
-The author of the package is Yining Ding. The uniprotToPhy function makes use of map function from mclust R package to generate ICL values. The stats R package is used for generating multinomially distributed random number vectors. (If applies: Part of the code for InfCriteriaCalculation function has been taken from <NamePackage> R package. Section of the borrowed code is clearly indicated and referenced in the InfCriteriaCalculation help file). The InfCriteriaPlot makes use of the graphics R package. NormFactors uses Trimmed Mean of M-values (TMM) as implemented in edgeR R package.
+The author of the package is Yining Ding. The uniprotToPhy function makes use of msaplot from ggtree package to generate the phylogenetic tree with multiple sequence alignment. The msa R package is used for performing MUSCLE multiple sequence alignment. The R shiny package was used to produce the Shiny App.
 
 
 ## References
+
 
 ## Acknowledgements
 
