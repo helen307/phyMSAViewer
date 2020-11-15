@@ -64,9 +64,6 @@ uniprotToPhy
 8. Xie, Y. (2014). knitr: a comprehensive tool for reproducible research in R. Implement Reprod Res, 1, 20.
 9. Yu, G., Smith, D. K., Zhu, H., Guan, Y., & Lam, T. T. Y. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. Methods in Ecology and Evolution, 8(1), 28-36.
 
-## Acknowledgement
-This package was developed for BCB410H: Applied Bioinformatics, University of Toronto, Toronto, CANADA, 2019-2020. TestingPackage welcomes issues, enhancement requests, and other contributions. To submit an issue, use the GitHub issues.
-
 ----
 ```{r}
 session_info()
