@@ -9,9 +9,15 @@
 #'         along with its full MSA plot.
 #' @examples
 #' # Use the mySeqs dataset for this function:
-#' uniprotToPhy <- function(mySeqs)
+#' seqToPhy <- function(mySeqs)
 #' # Access the phylogenetic tree with MSA plot directly.
-#' uniprotToPhy
+#' seqToPhy
+#'
+#' @references
+#'   Code for retrieving Uniprot data were borrowed from: http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html
+#'   Pages, H., Aboyoun, P., Gentleman, R., & DebRoy, S. (2016). Biostrings: String objects representing biological sequences, and matching algorithms. R package version, 2(0), 10-18129.
+#'   Paradis, E., Claude, J., & Strimmer, K. (2004). APE: analyses of phylogenetics and evolution in R language. Bioinformatics, 20(2), 289-290.
+#'   Yu, G., Smith, D. K., Zhu, H., Guan, Y., & Lam, T. T. Y. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. Methods in Ecology and Evolution, 8(1), 28-36.
 #'
 #' @export
 #'
@@ -28,8 +34,6 @@ seqToPhy <- function(mySeqs){
 
   # Build alignment
   my_align <- msa::msaConvert(to_align, type="seqinr::alignment")
-
-  # write into fasta
   write.fasta(as.list(my_align$seq),
               my_align$nam,
               file.out="msa.fasta")
@@ -42,6 +46,5 @@ seqToPhy <- function(mySeqs){
 
   # final plot: phy + msa
   ggtree::msaplot(p=ggtree(myTree),
-                  fasta="msa.fasta",
-                  window=c(50, 200))
+                  fasta="msa.fasta")
 }

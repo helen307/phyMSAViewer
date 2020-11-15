@@ -13,6 +13,13 @@
 #' # Access the phylogenetic tree with MSA plot directly.
 #' uniprotToPhy
 #'
+#'@references
+#'   Code for retrieving Uniprot data were borrowed from: http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html
+#'   Pages, H., Aboyoun, P., Gentleman, R., & DebRoy, S. (2016). Biostrings: String objects representing biological sequences, and matching algorithms. R package version, 2(0), 10-18129.
+#'   Paradis, E., Claude, J., & Strimmer, K. (2004). APE: analyses of phylogenetics and evolution in R language. Bioinformatics, 20(2), 289-290.
+#'   Yu, G., Smith, D. K., Zhu, H., Guan, Y., & Lam, T. T. Y. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. Methods in Ecology and Evolution, 8(1), 28-36.
+#'   Charif, D., Lobry, J. R., Necsulea, A., Palmeira, L., Penel, S., Perriere, G., & Penel, M. S. (2020). Package ‘seqinr’.
+#'
 #' @export
 #'
 #' @importFrom Biostrings readAAStringSet
@@ -21,7 +28,7 @@
 #' @import ggtree
 #' @import seqinr
 #'
-
+#'
 uniprotToPhy <- function(ID){
 
   uniID <- ID
@@ -36,8 +43,6 @@ uniprotToPhy <- function(ID){
 
   # get sequence
   seq2 <- seqinr::getSequence(seq1)
-
-  # write into fasta file
   write.fasta(sequences = seq2,
               names = getName(seq1),
               nbchar = 80, file.out = "seqs.fasta")
@@ -51,16 +56,15 @@ uniprotToPhy <- function(ID){
   # Build tree
   my_align <- msa::msaConvert(to_align,
                               type="seqinr::alignment")
-
-  # write into fasta
   write.fasta(as.list(my_align$seq),
               my_align$nam,
               file.out="msa.fasta")
-
+  # pair-wise
   d <- dist.alignment(my_align, "identity")
-  myTree <- ape::nj(d) # neighbor-joining
+  # neighbor-joining
+  myTree <- ape::nj(d)
 
+  # final plot
   ggtree::msaplot(p=ggtree(myTree),
-                  fasta="msa.fasta",
-                  window=c(50, 200))
+                  fasta="msa.fasta")
 }
