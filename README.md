@@ -33,7 +33,7 @@ browseVignettes("phyMSAViewer")
 
 There are mainly two functions in this package, including producing phylogenetic trees and multiple sequence alignment from Uniprot IDs and from fasta files. A sample dataset is provided as an example, and we will require the users to provide a file of the same format as input to `seqToPhy`. For `uniproToPhy`, please provide a correct character string, separated by " OR ".
 
-An overview of the package is shown below:
+An overview of the phyMSAViewerer package is shown below:
 ![Overview of phyMSAViewer](/Users/helending/Desktop/phyMSAViewer/man/figures/pic.png){width=70%}
 
 ## Contributions
