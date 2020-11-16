@@ -43,12 +43,12 @@ uniprotToPhy <- function(ID){
 
   # get sequence
   seq2 <- seqinr::getSequence(seq1)
-  write.fasta(sequences = seq2,
+  seqinr::write.fasta(sequences = seq2,
               names = getName(seq1),
               nbchar = 80, file.out = "seqs.fasta")
 
   # read sequence from the fasta file
-  mySeqs <- Biostrings::readAAStringSet("seqs")   # from package Biostrings
+  mySeqs <- Biostrings::readAAStringSet("seqs.fasta")   # from package Biostrings
 
   # perform multiple sequence alignment
   to_align <- msa::msa(mySeqs, method="Muscle")
@@ -56,7 +56,7 @@ uniprotToPhy <- function(ID){
   # Build tree
   my_align <- msa::msaConvert(to_align,
                               type="seqinr::alignment")
-  write.fasta(as.list(my_align$seq),
+  seqinr::write.fasta(as.list(my_align$seq),
               my_align$nam,
               file.out="msa.fasta")
   # pair-wise
