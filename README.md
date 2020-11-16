@@ -36,7 +36,7 @@ There are mainly two functions in this package, including producing phylogenetic
 Users can also access the uniprotToPhy function through the ShinyApp under the R subdirectory. This Shiny App will also alloq users to view the amino-acids' differences between MSA by selecting the window size.
 
 An overview of the phyMSAViewerer package is shown below:
-![Overview of phyMSAViewer](man/figures/overview.png){width=70%}
+![Overview of phyMSAViewer](man/figures/overview.png)
 
 ## Contributions
 The author of the package is Yining Ding. The uniprotToPhy function makes use of msaplot from ggtree package to generate the phylogenetic tree with multiple sequence alignment. The msa R package is used for performing MUSCLE multiple sequence alignment. The R shiny package was used to produce the Shiny App.
