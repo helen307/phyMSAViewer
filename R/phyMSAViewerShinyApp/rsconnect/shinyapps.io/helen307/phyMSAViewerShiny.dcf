@@ -1,0 +1,12 @@
+name: phyMSAViewerShiny
+title: phyMSAViewerShiny
+username:
+account: helen307
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3239325
+bundleId: 3864917
+url: https://helen307.shinyapps.io/phyMSAViewerShiny/
+when: 1605493667.5705
+asMultiple: FALSE
+asStatic: FALSE
