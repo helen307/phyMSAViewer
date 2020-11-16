@@ -33,6 +33,8 @@ browseVignettes("phyMSAViewer")
 
 There are mainly two functions in this package, including producing phylogenetic trees and multiple sequence alignment from Uniprot IDs and from fasta files. A sample dataset is provided as an example, and we will require the users to provide a file of the same format as input to `seqToPhy`. For `uniproToPhy`, please provide a correct character string, separated by " OR ".
 
+Users can also access the uniprotToPhy function through the ShinyApp under the R subdirectory. This Shiny App will also alloq users to view the amino-acids' differences between MSA by selecting the window size.
+
 An overview of the phyMSAViewerer package is shown below:
 ![Overview of phyMSAViewer](man/figures/overview.png){width=70%}
 
