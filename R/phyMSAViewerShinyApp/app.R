@@ -13,22 +13,22 @@ ui <- fluidPage(
     fluidRow(
 
 
-        column(2,
+        column(3,
                h3("Description"),
                helpText("phyMSAViewer is a helpful tool that enables users to have a general overview on multiple selected sequences. It also provides multiple sequence alignment on the side and enables users to zoom on a particular range of the multiple sequence alignment to have a better view of the amino acids.",
                )),
 
-        column(1,
+        column(3,
                textInput("text", h3("Enter Uniprot ID"))),
 
         actionButton("goButton", "Go!"),
 
-        column(1,
+        column(3,
                h3("Note"),
                helpText("Please enter the Uniprot entries like:  ",
                         "AC=P19838 OR AC=Q00653 OR AC=Q01201. ",
                         "Please wait for 20 seconds for the ",
-                        "program to run.")),
+                        "program to run for this example.")),
 
         sliderInput("range",
                     label = "Range of interest (MSA):",

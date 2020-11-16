@@ -5,9 +5,8 @@ account: helen307
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3241377
-bundleId: 3866523
+bundleId: 3866536
 url: https://helen307.shinyapps.io/phyMSAViewer-ShinyApp/
-when: 1605529278.68225
+when: 1605529646.21398
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: relseqs.fasta
