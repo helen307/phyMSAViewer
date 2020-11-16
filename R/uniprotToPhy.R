@@ -66,6 +66,6 @@ uniprotToPhy <- function(ID){
   myTree <- ape::nj(d)
 
   # final plot
-  ggtree::msaplot(p=ggtree(myTree),
+  ggtree::msaplot(p=ggtree(myTree) + geom_tiplab(hjust=1,vjust=-1),
                   fasta="msa.fasta")
 }

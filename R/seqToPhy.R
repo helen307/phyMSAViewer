@@ -45,7 +45,7 @@ seqToPhy <- function(mySeqs){
   myTree <- ape::nj(dis)
 
   # final plot: phy + msa
-  ggtree::msaplot(p=ggtree(myTree),
+  ggtree::msaplot(p=ggtree(myTree) + geom_tiplab(hjust=1,vjust=-1),
                   fasta="msa.fasta")
 }
 
