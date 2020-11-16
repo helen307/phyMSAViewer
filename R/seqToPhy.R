@@ -30,7 +30,7 @@
 seqToPhy <- function(mySeqs){
 
   # perform msa with MUSCLE
-  to_align <- msa::msa(mySeqs,method="Muscle")
+  to_align <- msa::msa(mySeqs)
 
   # Build alignment
   my_align <- msa::msaConvert(to_align, type="seqinr::alignment")
@@ -48,3 +48,4 @@ seqToPhy <- function(mySeqs){
   ggtree::msaplot(p=ggtree(myTree),
                   fasta="msa.fasta")
 }
+
