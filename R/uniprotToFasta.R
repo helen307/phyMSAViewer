@@ -10,7 +10,7 @@
 #' @examples
 #' # Use the following UniprotID for this
 #' # function: P19838, Q00653, Q01201
-#' uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+#' output <- uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
 #'
 #' # A file called seqs.fasta will appear in the
 #' # main directory.
