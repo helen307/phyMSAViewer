@@ -18,11 +18,13 @@ A function that produces a phylogenetic tree based on the Uniprot ID entered
 by the users.
 }
 \examples{
+\dontrun{
 # Use the following UniprotID for this
 # function: P19838, Q00653, Q01201
-phyMSA <- uniprotToPhy("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+uniprotToPhy("AC=P19838 OR AC=Q00653 OR AC=Q01201")
 # Access the phylogenetic tree with MSA plot directly.
-phyMSA
+}
+
 
 }
 \references{

@@ -8,11 +8,13 @@
 #' @return Returns a graph of a phylogenetic tree calculated on the Uniprot IDs
 #'         entered along with its full MSA plot.
 #' @examples
+#' \dontrun{
 #' # Use the following UniprotID for this
 #' # function: P19838, Q00653, Q01201
-#' phyMSA <- uniprotToPhy("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+#' uniprotToPhy("AC=P19838 OR AC=Q00653 OR AC=Q01201")
 #' # Access the phylogenetic tree with MSA plot directly.
-#' phyMSA
+#' }
+#'
 #'
 #'@references
 #'   1. Code for retrieving Uniprot data were borrowed from: http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html

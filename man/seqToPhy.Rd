@@ -18,10 +18,12 @@ A function that produces a phylogenetic tree based on the fasta file uploaded
 by the users.
 }
 \examples{
+\dontrun{
 # Use the mySeqs dataset for this function:
-seqToPhy <- function(mySeqs)
+seqToPhy(mySeqs)
 # Access the phylogenetic tree with MSA plot directly.
-seqToPhy
+}
+
 
 }
 \references{

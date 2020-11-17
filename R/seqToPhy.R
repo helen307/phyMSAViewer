@@ -8,10 +8,12 @@
 #' @return Returns a graph of a phylogenetic tree calculated on the sequence dataset
 #'         along with its full MSA plot.
 #' @examples
+#' \dontrun{
 #' # Use the mySeqs dataset for this function:
-#' seqToPhy <- function(mySeqs)
+#' seqToPhy(mySeqs)
 #' # Access the phylogenetic tree with MSA plot directly.
-#' seqToPhy
+#' }
+#'
 #'
 #' @references
 #'   1. Code for retrieving Uniprot data were borrowed from: http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html
