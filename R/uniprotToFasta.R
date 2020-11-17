@@ -8,12 +8,12 @@
 #' @return Creates a fasta file called seqs.fasta in the main directory.
 #'
 #' @examples
-#' # Use the following UniprotID for this
-#' # function: P19838, Q00653, Q01201
-#' output <- uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+#' # Use the following UniprotID for this function: P19838, Q00653, Q01201
+#' \dontrun{
+#' uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+#' }
 #'
-#' # A file called seqs.fasta will appear in the
-#' # main directory.
+#' # A file called seqs.fasta will appear in the main directory.
 #'
 #' @references
 #'   Code for retrieving Uniprot data were borrowed from: http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html

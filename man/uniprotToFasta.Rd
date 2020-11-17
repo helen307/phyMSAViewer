@@ -17,12 +17,12 @@ A function that produces a fasta file based on the Uniprot ID entered
 by the users.
 }
 \examples{
-# Use the following UniprotID for this
-# function: P19838, Q00653, Q01201
-output <- uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+# Use the following UniprotID for this function: P19838, Q00653, Q01201
+\dontrun{
+uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+}
 
-# A file called seqs.fasta will appear in the
-# main directory.
+# A file called seqs.fasta will appear in the main directory.
 
 }
 \references{
