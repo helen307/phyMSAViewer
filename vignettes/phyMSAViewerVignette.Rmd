@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-**phyMSAViewer** is a helpful tool that enables users to have a general overview on multiple selected sequences. It also provides multiple sequence alignment on the side and enables users to zoom on a particular range of the multiple sequence alignment to have a better view of the amino acids. Function **uniprotToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by entering Uniprot IDs. Function **seqToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by providing a fasta file containg the selected sequences. The shiny implementation of *phyMSAViewer* is available as [runPhyMSAViewer](https://helen307.shinyapps.io/phymsaviewerapp/) (still under construction, will be available for the final submission). For more information, see details below. This document gives a tour of phyMSAViewer functionalities. It was written in Rmarkdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production.
+**phyMSAViewer** is a helpful tool that enables users to have a general overview on multiple selected sequences. It also provides multiple sequence alignment on the side and enables users to zoom on a particular range of the multiple sequence alignment to have a better view of the amino acids. Function **uniprotToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by entering Uniprot IDs. Function **seqToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by providing a fasta file containg the selected sequences. Function **uniprotToFasta** enables users to retrieve fasta file that contains sequences of interest by entering Uniprot IDs. The shiny implementation of *phyMSAViewer* is available as [runPhyMSAViewer](https://helen307.shinyapps.io/phymsaviewerapp/) (still under construction, you can run it from the R subdirectory) . For more information, see details below. This document gives a tour of phyMSAViewer functionalities. It was written in Rmarkdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production.
 
 See `help(package=phyMSAViewer)` for further details and references provided by `citation("phyMSAViewer")`. To download **phyMSAViewer**, use the following commands: 
 ```{r setup}
@@ -45,13 +45,30 @@ We used the neighbor-joining (NJ) algorithm to create our phylogenetic tree afte
 ![NJ is a greedy algorithm](/Users/helending/Downloads/nj.png){width=50%}
 
 ## Example
-We will expect the users to enter a list of Uniprot IDs separated by "OR"s.
+1. **uniprotToPhy**: We will expect the users to enter a list of Uniprot IDs separated by "OR"s, and the function will return a phylogenetic tree with multiple sequence alignment on the side.
 ```{r example}
 library(phyMSAViewer)
-uniprotToPhy <- function(ID="AC=P19838 OR AC=Q00653 OR AC=Q01201")
+phyMSA <- uniprotToPhy(ID="AC=P19838 OR AC=Q00653 OR AC=Q01201")
 # Access the phylogenetic tree with MSA plot directly from the object.
-uniprotToPhy
+phyMSA
 ```
+
+2. **seqToPhy**: We will expect the users to provide a AAStringSet instance sequence file (read from a fasta file). You can make this file by:
+```{r}
+# mySeqs <- Biostrings::readAAStringSet("<Your fasta file name>.fasta")
+seqPhyMSA <- seqToPhy(mySeqs) # mySeqs is a dataset in this package
+# Access the phylogenetic tree with MSA plot directly from the object.
+seqPhyMSA
+```
+
+3. **uniprotToFasta**: We will create a fasta file of sequences from the user entered Uniprot IDs.
+```{r}
+# Use the following UniprotID for this function: P19838, Q00653, Q01201
+phyMSAViewer::uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
+
+# A file called seqs.fasta will appear in the main directory.
+```
+
 
 ## References
 1. Charif, D., Lobry, J. R., Necsulea, A., Palmeira, L., Penel, S., Perriere, G., & Penel, M. S. (2020). Package ‘seqinr’.

@@ -8,17 +8,18 @@
 #' @return Returns a graph of a phylogenetic tree calculated on the Uniprot IDs
 #'         entered along with its full MSA plot.
 #' @examples
-#' # Use the following UniprotID for this function: P19838, Q00653, Q01201
-#' uniprotToPhy <- function(ID="AC=P19838 OR AC=Q00653 OR AC=Q01201")
+#' # Use the following UniprotID for this
+#' # function: P19838, Q00653, Q01201
+#' phyMSA <- uniprotToPhy("AC=P19838 OR AC=Q00653 OR AC=Q01201")
 #' # Access the phylogenetic tree with MSA plot directly.
-#' uniprotToPhy
+#' phyMSA
 #'
 #'@references
-#'   Code for retrieving Uniprot data were borrowed from: http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html
-#'   Pages, H., Aboyoun, P., Gentleman, R., & DebRoy, S. (2016). Biostrings: String objects representing biological sequences, and matching algorithms. R package version, 2(0), 10-18129.
-#'   Paradis, E., Claude, J., & Strimmer, K. (2004). APE: analyses of phylogenetics and evolution in R language. Bioinformatics, 20(2), 289-290.
-#'   Yu, G., Smith, D. K., Zhu, H., Guan, Y., & Lam, T. T. Y. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. Methods in Ecology and Evolution, 8(1), 28-36.
-#'   Charif, D., Lobry, J. R., Necsulea, A., Palmeira, L., Penel, S., Perriere, G., & Penel, M. S. (2020). Package ‘seqinr’.
+#'   1. Code for retrieving Uniprot data were borrowed from: http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html
+#'   2. Pages, H., Aboyoun, P., Gentleman, R., & DebRoy, S. (2016). Biostrings: String objects representing biological sequences, and matching algorithms. R package version, 2(0), 10-18129.
+#'   3. Paradis, E., Claude, J., & Strimmer, K. (2004). APE: analyses of phylogenetics and evolution in R language. Bioinformatics, 20(2), 289-290.
+#'   4. Yu, G., Smith, D. K., Zhu, H., Guan, Y., & Lam, T. T. Y. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. Methods in Ecology and Evolution, 8(1), 28-36.
+#'   5. Charif, D., Lobry, J. R., Necsulea, A., Palmeira, L., Penel, S., Perriere, G., & Penel, M. S. (2020). Package ‘seqinr’.
 #'
 #' @export
 #'
