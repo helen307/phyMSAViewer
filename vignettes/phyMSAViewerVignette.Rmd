@@ -37,12 +37,12 @@ lsf.str("package:phyMSAViewer")
 
 Normally building a phylogenetic tree starts from providing with a sequence fasta file. In this package, we allow users to start by typing in the Uniprot IDs. Then we download the sequence data from Swiss-Prot. The reason why we chose to perform MSA (multiple sequence alignment) using the algorithm `MUSCLE` is because ClusterW implements an interative method. Therefore, the calculation errors will be accumulated. `MUSCLE` has a progressive algorithm that optimizes at each step. Here is an image that explains the alogrithm of MUSCLE in detail:
 
-![MUSCLE](/Users/helending/Downloads/muscle.jpg){width=50%}
+![MUSCLE](/Users/helending/Desktop/phyMSAViewer/image/muscle.png){width=50%}
 
 ## Creation of phylogenetic trees
 We used the neighbor-joining (NJ) algorithm to create our phylogenetic tree after we obtain the pairwise distances from the sequences. This algorithm joins the two closest sub-trees that are not already joined. A "neighbor" is defined as two texa that are connected by a single node in an unrooted tree. Here is an image showing how the NJ algorithm perform its greedy actions:
 
-![NJ is a greedy algorithm](/Users/helending/Downloads/nj.png){width=50%}
+![NJ is a greedy algorithm](/Users/helending/Desktop/phyMSAViewer/image/nj.png){width=20%}
 
 ## Example
 1. **uniprotToPhy**: We will expect the users to enter a list of Uniprot IDs separated by "OR"s, and the function will return a phylogenetic tree with multiple sequence alignment on the side.

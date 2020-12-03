@@ -39,11 +39,8 @@ uniprotToPhy <- function(ID){
     return("Please provide a valid string of Uniprot ID")
   }
 
-
   mybank <- seqinr::choosebank(bank = "swissprot")
   seq1 <- seqinr::query("relSeq", uniID)
-  # N.B. protein info NOT returned in the same order as requested
-
 
   # get sequence
   seq2 <- seqinr::getSequence(seq1)
