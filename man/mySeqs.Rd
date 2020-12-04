@@ -9,19 +9,44 @@ An object of class \code{AAStringSet} of length 10.
 }
 \source{
 \url{https://www.uniprot.org}
+
+\url{https://www.uniprot.org/uniprot/O95644}
+
+\url{https://www.uniprot.org/uniprot/O95644}
+
+\url{https://www.uniprot.org/uniprot/Q12968}
+
+\url{https://www.uniprot.org/uniprot/Q14934}
+
+\url{https://www.uniprot.org/uniprot/O94916}
+
+\url{https://www.uniprot.org/uniprot/P19838}
+
+\url{https://www.uniprot.org/uniprot/Q00653}
+
+\url{https://www.uniprot.org/uniprot/Q01201}
+
+\url{https://www.uniprot.org/uniprot/Q04864}
+
+\url{https://www.uniprot.org/uniprot/Q04206}
 }
 \usage{
 mySeqs
 }
 \description{
-A dataset that contains sequences from ten uniprot IDs, and was read from a fasta file.
+A dataset that contains sequences from ten uniprot IDs, and was read from a fasta file. All the sequences are randomly selected homo sapiens.
 }
 \details{
 @format A AAStringSet of length 10, length of the strings varies:
 \describe{
-\item{NAMES}{Name of each sequence, in characters}
+\item{NAMES}{Species name of each sequence (homo sapiens), in characters}
 \item{start}{The start index of each sequence, in integers}
 \item{width}{The length of each sequence, in integers}
+}
+}
+\references{
+\enumerate{
+\item UniProt Consortium. (2015). UniProt: a hub for protein information. Nucleic acids research, 43(D1), D204-D212.
 }
 }
 \keyword{datasets}

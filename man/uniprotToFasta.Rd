@@ -26,5 +26,5 @@ uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
 
 }
 \references{
-Code for retrieving Uniprot data were borrowed from: http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html
+Brennan, P. (1970, January 01). Drawing a simple phylogenetic tree of the human rel homology domain family. Retrieved December 04, 2020, from http://rforbiochemists.blogspot.com/2016/12/drawing-simple-phylogenetic-tree-of.html
 }
