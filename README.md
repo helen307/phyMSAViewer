@@ -73,13 +73,13 @@ used to produce the Shiny App.
 1.  Charif, D., Lobry, J. R., Necsulea, A., Palmeira, L., Penel, S.,
     Perriere, G., & Penel, M. S. (2020). Package ‘seqinr’.
 2.  Edgar, R. C. (2004). MUSCLE: multiple sequence alignment with high
-    accuracy and high throughput. Nucleic acids research, 32(5),
+    accuracy and high throughput. *Nucleic acids research*, 32(5),
     1792-1797.
 3.  Simonsen, M., Mailund, T., & Pedersen, C. N. (2008, September).
     Rapid neighbour-joining. In International Workshop on Algorithms in
     Bioinformatics (pp. 113-122). Springer, Berlin, Heidelberg.
 4.  UniProt Consortium. (2015). UniProt: a hub for protein information.
-    Nucleic acids research, 43(D1), D204-D212.
+    *Nucleic acids research*, 43(D1), D204-D212.
 5.  Wickham, H., Danenberg, P., & Eugster, M. (2017). roxygen2: in-line
     documentation for R. R package version, 6(1).
 6.  Wickham, H., & Bryan, J. (2018). Usethis: Automate package and
@@ -87,11 +87,11 @@ used to produce the Shiny App.
 7.  Wickham, H., Hester, J., Chang, W., & Hester, M. J. (2020). Package
     ‘devtools’.
 8.  Xie, Y. (2014). knitr: a comprehensive tool for reproducible
-    research in R. Implement Reprod Res, 1, 20.
+    research in R. *Implement Reprod Res*, 1, 20.
 9.  Yu, G., Smith, D. K., Zhu, H., Guan, Y., & Lam, T. T. Y. (2017).
     ggtree: an R package for visualization and annotation of
     phylogenetic trees with their covariates and other associated data.
-    Methods in Ecology and Evolution, 8(1), 28-36.
+    *Methods in Ecology and Evolution*, 8(1), 28-36.
 
 ## Acknowledgements
 
