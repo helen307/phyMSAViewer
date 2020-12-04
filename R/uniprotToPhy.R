@@ -45,26 +45,23 @@ uniprotToPhy <- function(ID){
 
   # get sequence
   seq2 <- seqinr::getSequence(seq1)
-  seqinr::write.fasta(sequences = seq2,
+  write.fasta(sequences = seq2,
               names = getName(seq1),
               nbchar = 80, file.out = "seqs.fasta")
-
   # read sequence from the fasta file
-  mySeqs <- Biostrings::readAAStringSet("seqs.fasta")   # from package Biostrings
+  mySeqs <- readAAStringSet("seqs.fasta")   # from package Biostrings
 
   # perform multiple sequence alignment
-  to_align <- msa::msa(mySeqs)
+  to_align <- msa(mySeqs)
 
   # Build tree
-  my_align <- msa::msaConvert(to_align,
-                              type="seqinr::alignment")
-  seqinr::write.fasta(as.list(my_align$seq),
-              my_align$nam,
-              file.out="msa.fasta")
-  # pair-wise
+  my_align <- msaConvert(to_align, type="seqinr::alignment")
+
+  # write into fasta
+  write.fasta(as.list(my_align$seq),my_align$nam,file.out="msa.fasta")
+
   d <- dist.alignment(my_align, "identity")
-  # neighbor-joining
-  myTree <- ape::nj(d)
+  myTree <- nj(d) # neighbor-joining
 
   # final plot
   ggtree::msaplot(p=ggtree(myTree) + geom_tiplab(hjust=1,vjust=-1),
