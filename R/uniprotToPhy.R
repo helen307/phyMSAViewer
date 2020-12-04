@@ -53,7 +53,7 @@ uniprotToPhy <- function(ID){
   mySeqs <- Biostrings::readAAStringSet("seqs.fasta")   # from package Biostrings
 
   # perform multiple sequence alignment
-  to_align <- msa::msa(mySeqs, method="Muscle")
+  to_align <- msa::msa(mySeqs)
 
   # Build tree
   my_align <- msa::msaConvert(to_align,
