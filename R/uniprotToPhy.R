@@ -32,6 +32,7 @@
 #' @import seqinr
 #'
 #'
+#'
 uniprotToPhy <- function(ID){
 
   uniID <- ID
