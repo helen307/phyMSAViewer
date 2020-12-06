@@ -95,7 +95,7 @@ server <- function(input, output) {
 
 
     output$msaPlot <- renderPlot({
-        ggmsa("relseqs.fasta", start = input$range[1], end = input$range[2])
+        ggmsa("msa.fasta", start = input$range[1], end = input$range[2])
     })
 }
 
