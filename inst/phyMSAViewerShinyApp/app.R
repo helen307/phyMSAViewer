@@ -27,7 +27,7 @@ ui <- fluidPage(
                h3("Note"),
                helpText("Please enter the Uniprot entries like:  ",
                         "AC=P19838 OR AC=Q00653 OR AC=Q01201. ",
-                        "Please wait for 20 seconds for the ",
+                        "Please wait for at least 20 seconds for the ",
                         "program to run for this example.")),
 
         sliderInput("range",
@@ -38,7 +38,6 @@ ui <- fluidPage(
     # Sidebar layout with input and output definitions ----
     sidebarLayout(
 
-        # Sidebar panel for inputs ----
         sidebarPanel(
 
             # Input: Slider for the number of bins ----

@@ -30,14 +30,24 @@
 #' @import msa
 #' @import ggtree
 #' @import seqinr
-#'
+#' @import stringr
 #'
 #'
 uniprotToPhy <- function(ID){
 
   uniID <- ID
-  if(!is.character(uniID) | length(uniID) < 1){
-    return("Please provide a valid string of Uniprot ID")
+
+  if (!grepl("[A-Z][0-9]{5}", uniID)) {
+    print("Please provide a valid string of Uniprot ID")
+  } else if ((nchar(uniID) == 6 || nchar(uniID) == 9) &&
+           stringr::str_count(uniID, "OR") == 0) {
+    # ensure the IDs are separated by 'OR's
+    print("Please use ORs to separate multiple Uniprot IDs")
+  } else if ((stringr::str_count(uniID, " OR ") + 1) != stringr::str_count(uniID, "AC=")){
+    # ensure each ID is led by a 'AC='
+    print("Please use AC= to lead all the Uniprot IDs")
+  } else {
+    print("Valid input!")
   }
 
   mybank <- seqinr::choosebank(bank = "swissprot")
@@ -56,6 +66,7 @@ uniprotToPhy <- function(ID){
   to_align <- msa::msa(mySeqs, method="Muscle")
 
   # Build tree
+
   my_align <- msa::msaConvert(to_align,
                               type="seqinr::alignment")
   seqinr::write.fasta(as.list(my_align$seq),
