@@ -2,11 +2,12 @@ context("uniprotToPhy function")
 library(phyMSAViewer)
 library(seqinr)
 library(testthat)
+library(stringr)
 
 
 test_that("seq1 works", {
   user_input <- "AC=P19838 OR AC=Q00653 OR AC=Q01201"
-  cnt <- 3
+  cnt <- stringr::str_count(uniID, "OR") + 1
 
   mybank <- seqinr::choosebank(bank = "swissprot")
   seq1 <- seqinr::query("relSeq", user_input)
