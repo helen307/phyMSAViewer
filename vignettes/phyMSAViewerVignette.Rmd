@@ -17,13 +17,18 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-**phyMSAViewer** is a helpful tool that enables users to have a general overview on multiple selected sequences. It also provides multiple sequence alignment on the side and enables users to zoom on a particular range of the multiple sequence alignment to have a better view of the amino acids. Function **uniprotToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by entering Uniprot IDs. Function **seqToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by providing a fasta file containg the selected sequences. Function **uniprotToFasta** enables users to retrieve fasta file that contains sequences of interest by entering Uniprot IDs. The shiny implementation of *phyMSAViewer* is available as [runPhyMSAViewer](https://helen307.shinyapps.io/phymsaviewerapp/) (still under construction, you can run it from the R subdirectory) . For more information, see details below. This document gives a tour of phyMSAViewer functionalities. It was written in Rmarkdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production.
+**phyMSAViewer** is a helpful tool that enables users to have a general overview on multiple selected sequences. It also provides multiple sequence alignment on the side and enables users to zoom on a particular range of the multiple sequence alignment to have a better view of the amino acids. Function **uniprotToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by entering Uniprot IDs. Function **seqToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by providing a fasta file containg the selected sequences. Function **uniprotToFasta** enables users to retrieve fasta file that contains sequences of interest by entering Uniprot IDs. The shiny implementation of *phyMSAViewer* is available as a Shiny App (indicated below). For more information, see details below. This document gives a tour of phyMSAViewer functionalities. It was written in Rmarkdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production.
 
 See `help(package=phyMSAViewer)` for further details and references provided by `citation("phyMSAViewer")`. To download **phyMSAViewer**, use the following commands: 
 ```{r setup, warning=FALSE, message=FALSE}
 library(devtools)
 devtools::install_github("helen307/phyMSAViewer", build_vignettes=TRUE)
 library(phyMSAViewer)
+```
+
+To run the Shiny App:
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+shiny::runApp(appDir = system.file("phyMSAViewerShinyApp", package = "phyMSAViewer"),)
 ```
 
 To list all functions available in the package:
