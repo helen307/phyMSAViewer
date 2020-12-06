@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 **phyMSAViewer** is a helpful tool that enables users to have a general overview on multiple selected sequences. It also provides multiple sequence alignment on the side and enables users to zoom on a particular range of the multiple sequence alignment to have a better view of the amino acids. Function **uniprotToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by entering Uniprot IDs. Function **seqToPhy** enables users to view the phylogenetic tree with the multiple sequence alignment by providing a fasta file containg the selected sequences. Function **uniprotToFasta** enables users to retrieve fasta file that contains sequences of interest by entering Uniprot IDs. The shiny implementation of *phyMSAViewer* is available as [runPhyMSAViewer](https://helen307.shinyapps.io/phymsaviewerapp/) (still under construction, you can run it from the R subdirectory) . For more information, see details below. This document gives a tour of phyMSAViewer functionalities. It was written in Rmarkdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production.
 
 See `help(package=phyMSAViewer)` for further details and references provided by `citation("phyMSAViewer")`. To download **phyMSAViewer**, use the following commands: 
-```{r setup}
+```{r setup, warning=FALSE, message=FALSE}
 library(devtools)
 devtools::install_github("helen307/phyMSAViewer", build_vignettes=TRUE)
 library(phyMSAViewer)
@@ -45,7 +45,7 @@ We used the neighbor-joining (NJ) algorithm to create our phylogenetic tree afte
 
 ## Example
 1. **uniprotToPhy**: We will expect the users to enter a list of Uniprot IDs separated by "OR"s, and the function will return a phylogenetic tree with multiple sequence alignment on the side.
-```{r example}
+```{r example, warning=FALSE}
 library(phyMSAViewer)
 phyMSA <- uniprotToPhy(ID="AC=P19838 OR AC=Q00653 OR AC=Q01201")
 # Access the phylogenetic tree with MSA plot directly from the object.
@@ -53,7 +53,7 @@ phyMSA
 ```
 
 2. **seqToPhy**: We will expect the users to provide a AAStringSet instance sequence file (read from a fasta file). You can make this file by:
-```{r}
+```{r, warning=FALSE}
 # mySeqs <- Biostrings::readAAStringSet("<Your fasta file name>.fasta")
 seqPhyMSA <- seqToPhy(mySeqs) # mySeqs is a dataset in this package
 # Access the phylogenetic tree with MSA plot directly from the object.
@@ -61,7 +61,7 @@ seqPhyMSA
 ```
 
 3. **uniprotToFasta**: We will create a fasta file of sequences from the user entered Uniprot IDs.
-```{r}
+```{r, warning=FALSE}
 # Use the following UniprotID for this function: P19838, Q00653, Q01201
 phyMSAViewer::uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
 
@@ -70,15 +70,15 @@ phyMSAViewer::uniprotToFasta("AC=P19838 OR AC=Q00653 OR AC=Q01201")
 
 
 ## References
-1. Charif, D., Lobry, J. R., Necsulea, A., Palmeira, L., Penel, S., Perriere, G., & Penel, M. S. (2020). Package ‘seqinr’.
-2. Edgar, R. C. (2004). MUSCLE: multiple sequence alignment with high accuracy and high throughput. Nucleic acids research, 32(5), 1792-1797.
-3. Simonsen, M., Mailund, T., & Pedersen, C. N. (2008, September). Rapid neighbour-joining. In International Workshop on Algorithms in Bioinformatics (pp. 113-122). Springer, Berlin, Heidelberg.
-4. UniProt Consortium. (2015). UniProt: a hub for protein information. Nucleic acids research, 43(D1), D204-D212.
-5. Wickham, H., Danenberg, P., & Eugster, M. (2017). roxygen2: in-line documentation for R. R package version, 6(1).
-6. Wickham, H., & Bryan, J. (2018). Usethis: Automate package and project setup.
-7. Wickham, H., Hester, J., Chang, W., & Hester, M. J. (2020). Package ‘devtools’.
-8. Xie, Y. (2014). knitr: a comprehensive tool for reproducible research in R. Implement Reprod Res, 1, 20.
-9. Yu, G., Smith, D. K., Zhu, H., Guan, Y., & Lam, T. T. Y. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. Methods in Ecology and Evolution, 8(1), 28-36.
+1. Charif, D., Lobry, J. R., Necsulea, A., Palmeira, L., Penel, S., Perriere, G., & Penel, M. S. (2020). _Package ‘seqinr’_.
+2. Edgar, R. C. (2004). MUSCLE: multiple sequence alignment with high accuracy and high throughput. _Nucleic acids research_, 32(5), 1792-1797.
+3. Simonsen, M., Mailund, T., & Pedersen, C. N. (2008, September). Rapid neighbour-joining. _In International Workshop on Algorithms in Bioinformatics_ (pp. 113-122). Springer, Berlin, Heidelberg.
+4. UniProt Consortium. (2015). UniProt: a hub for protein information. _Nucleic acids research_, 43(D1), D204-D212.
+5. Wickham, H., Danenberg, P., & Eugster, M. (2017). roxygen2: in-line documentation for R. _R package version_, 6(1).
+6. Wickham, H., & Bryan, J. (2018). _Usethis: Automate package and project setup_.
+7. Wickham, H., Hester, J., Chang, W., & Hester, M. J. (2020). _Package ‘devtools’_.
+8. Xie, Y. (2014). knitr: a comprehensive tool for reproducible research in R. _Implement Reprod Res_, 1, 20.
+9. Yu, G., Smith, D. K., Zhu, H., Guan, Y., & Lam, T. T. Y. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. _Methods in Ecology and Evolution_, 8(1), 28-36.
 
 ----
 ```{r}
