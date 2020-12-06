@@ -50,12 +50,24 @@ browseVignettes("phyMSAViewer")
 shiny::runApp(appDir = system.file("phyMSAViewerShinyApp", package = "phyMSAViewer"),)
 ```
 
-There are mainly two functions in this package, including producing phylogenetic trees and multiple sequence alignment from Uniprot IDs and from fasta files. A sample dataset is provided as an example, and we will require the users to provide a file of the same format as input to `seqToPhy`. For `uniproToPhy`, please provide a correct character string, separated by " OR ".
+There are mainly two functions in this package, including producing phylogenetic trees and multiple sequence alignment from Uniprot IDs and from fasta files. A sample dataset `mySeqs` is provided, and we will require a file of the same format as input to `seqToPhy`. For `uniproToPhy`, please provide a correct character string, separated by " OR " and led by "AC=". The function will also perform a check on the user input, please ensure you type accurate Uniprot IDs.
 
-Users can also access the uniprotToPhy function through the ShinyApp (the fourth command indicated above). This Shiny App will also alloq users to view the amino-acids' differences between MSA by selecting the window size.
+Users can also access the `uniprotToPhy` function through the **ShinyApp** (the fourth command indicated above). This Shiny App will also allow users to view the amino-acids' differences between MSA by selecting the window size. Please be patient with the Shiny App as the running time depends on the number of Uniprot ID of input.
 
 An overview of the phyMSAViewerer package is shown below:
 ![Overview of phyMSAViewer](man/figures/overview.png)
+## Progress since the initial submission
+(Will delete after being graded)
+* Added checkpoints for user input Uniprot IDs.
+* Added tests directory.
+* Fixed installation problem.
+* Added ShinyApp (moved to the inst subdirectory).
+* Fixed vignette knit problem.
+* Allow input greater than 3 uniprot IDs.
+* Added full references to data and all R files, italicize all the journal titles.
+* Added README.Rmd file, used it to generate README.md file.
+* Filled in DESCRIPTION file.
+
 
 ## Contributions
 The author of the package is Yining Ding. seqinr was used to retrieve sequence data from the Uniprot database. The uniprotToPhy function makes use of msaplot from ggtree package to generate the phylogenetic tree with multiple sequence alignment. The msa R package is used for performing MUSCLE multiple sequence alignment. The R shiny package was used to produce the Shiny App.
